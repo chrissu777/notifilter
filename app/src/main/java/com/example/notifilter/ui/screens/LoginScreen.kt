@@ -24,6 +24,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountBox
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -47,73 +49,82 @@ import com.example.notifilter.ui.theme.AppTypography
 fun LoginScreen() {
     NotifilterTheme {
         Surface() {
+
             Column(modifier = Modifier.fillMaxSize()) {
                 val uiColor = if (isSystemInDarkTheme()) Color.White else Color.Black
-//            Box(
-//                contentAlignment = Alignment.TopStart
-//            ) {
-//                Icon(
-//                    Icons.Rounded.AccountBox,
-//                    contentDescription = null,
-//                    modifier = Modifier.size(64.dp)
-//                )
-//            }
                 Spacer(modifier = Modifier.padding(top = 90.dp))
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(30.dp)
                 ) {
-                    LoginSection()
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(10.dp),
+                        elevation = CardDefaults.cardElevation(
+                            defaultElevation = 10.dp
+                        )
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            LoginSection()
+                        }                    }
                     Spacer(modifier = Modifier.height(25.dp))
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Row(modifier = Modifier.fillMaxWidth()) {
-                            HorizontalDivider(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .height(0.5.dp)
-                                    .align(alignment = Alignment.CenterVertically),
-                                color = Color.Gray
-
-                            )
-                            Text(
-                                modifier = Modifier.padding(horizontal = 8.dp),
-                                text = "Or Continue With",
-                                style = MaterialTheme.typography.labelMedium,
-                            )
-                            HorizontalDivider(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .height(0.5.dp)
-                                    .align(alignment = Alignment.CenterVertically),
-                                color = Color.Gray
-                            )
-                        }
+                        OrContinueWith()
                         Spacer(modifier = Modifier.height(25.dp))
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            SocialMediaLogin(
-                                R.drawable.google,
-                                modifier = Modifier.weight(1f),
-                                text = "Google"
-                            ) {
-
-                            }
-                            Spacer(modifier = Modifier.width(20.dp))
-                            SocialMediaLogin(
-                                R.drawable.facebook,
-                                modifier = Modifier.weight(1f),
-                                text = "Facebook"
-                            ) {
-
-                            }
-                        }
+                        SocialMediaButtons()
                     }
                 }
             }
         }
+
+    }
+}
+
+@Composable
+private fun SocialMediaButtons() {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        SocialMediaLogin(
+            R.drawable.google,
+            modifier = Modifier.weight(1f),
+            text = "Google"
+        ) {
+
+        }
+        Spacer(modifier = Modifier.width(20.dp))
+        SocialMediaLogin(
+            R.drawable.facebook,
+            modifier = Modifier.weight(1f),
+            text = "Facebook"
+        ) {
+
+        }
+    }
+}
+
+@Composable
+private fun OrContinueWith() {
+    Row(modifier = Modifier.fillMaxWidth()) {
+        HorizontalDivider(
+            modifier = Modifier
+                .weight(1f)
+                .height(0.5.dp)
+                .align(alignment = Alignment.CenterVertically)
+        )
+        Text(
+            modifier = Modifier.padding(horizontal = 8.dp),
+            text = "Or Continue With",
+            style = MaterialTheme.typography.labelMedium,
+        )
+        HorizontalDivider(
+            modifier = Modifier
+                .weight(1f)
+                .height(0.5.dp)
+                .align(alignment = Alignment.CenterVertically)
+        )
     }
 }
 
