@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.notifilter.ui.theme.*
-import com.example.notifilter.ui.theme.Typography
+import com.example.notifilter.ui.theme.AppTypography
 
 @Composable
 fun LoginTextField(
@@ -17,7 +17,7 @@ fun LoginTextField(
     label: String,
     trailing: String
     ){
-    val uiColor = if(isSystemInDarkTheme()) Color.White else Black
+    val uiColor = if(isSystemInDarkTheme()) Color.White else Color.Black
     TextField(
         modifier = modifier,
         value = "",
@@ -26,7 +26,10 @@ fun LoginTextField(
             Text(text = label, style = MaterialTheme.typography.labelMedium, color = uiColor)
         },
         colors = TextFieldDefaults.colors(
-
+            unfocusedPlaceholderColor = MaterialTheme.colorScheme.unfocusedTextFieldText,
+            focusedPlaceholderColor =  MaterialTheme.colorScheme.focusedTextFieldText,
+            unfocusedContainerColor = MaterialTheme.colorScheme.textFieldContainer,
+            focusedContainerColor = MaterialTheme.colorScheme.textFieldContainer
         )
     )
 }

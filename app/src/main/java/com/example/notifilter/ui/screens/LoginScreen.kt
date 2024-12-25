@@ -30,16 +30,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.notifilter.R
-import com.example.notifilter.ui.theme.Black
 import com.example.notifilter.ui.theme.NotifilterTheme
-import com.example.notifilter.ui.theme.Typography
+import com.example.notifilter.ui.theme.AppTypography
 
 @Composable
-fun LoginScreen(){
+fun LoginScreen() {
     Surface() {
         Column(modifier = Modifier.fillMaxSize()) {
-        val uiColor = Black
-            //        if(isSystemInDarkTheme()) Color.White else Black
+            val uiColor = if (isSystemInDarkTheme()) Color.White else Color.Black
 //            Box(
 //                contentAlignment = Alignment.TopStart
 //            ) {
@@ -50,13 +48,19 @@ fun LoginScreen(){
 //                )
 //            }
             Spacer(modifier = Modifier.padding(top = 90.dp))
-            Column(modifier = Modifier.fillMaxSize().padding(30.dp)){
-                Text(text = stringResource(id = R.string.login),
+            Column(modifier = Modifier
+                .fillMaxSize()
+                .padding(30.dp)) {
+                Text(
+                    text = stringResource(id = R.string.login),
                     style = MaterialTheme.typography.headlineLarge,
-                    )
-                Text(text = stringResource(id = R.string.loginMessage),
+                )
+                Text(
+                    text = stringResource(id = R.string.loginMessage),
                     style = MaterialTheme.typography.labelSmall
-                    )
+                )
+                LoginTextField(Modifier.fillMaxWidth(),"Email","Trailing")
+                LoginTextField(Modifier.fillMaxWidth(),"Password","Forgot?")
             }
         }
     }
