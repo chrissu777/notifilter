@@ -3,6 +3,7 @@ package com.example.notifilter.ui.screens
 import android.content.res.Configuration
 import android.media.tv.TvContract
 import android.os.Bundle
+import android.view.RoundedCorner
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -18,8 +19,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountBox
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -57,21 +60,65 @@ fun LoginScreen() {
                         .fillMaxSize()
                         .padding(30.dp)
                 ) {
-                    Text(
-                        text = stringResource(id = R.string.login),
-                        style = MaterialTheme.typography.headlineLarge,
-                    )
-                    Text(
-                        text = stringResource(id = R.string.loginMessage),
-                        style = MaterialTheme.typography.labelSmall
-                    )
-                    Spacer(modifier = Modifier.height(10.dp))
-                    LoginTextField(Modifier.fillMaxWidth(), "Email", "")
-                    Spacer(modifier = Modifier.height(10.dp))
-                    LoginTextField(Modifier.fillMaxWidth(), "Password", "Forgot?")
+                    LoginSection()
+                    Spacer(modifier = Modifier.height(25.dp))
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(
+                            text = "Or Continue With",
+                            style = MaterialTheme.typography.labelMedium
+                        )
+                        Spacer(modifier = Modifier.height(25.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            SocialMediaLogin(
+                                R.drawable.google,
+                                modifier = Modifier.weight(1f),
+                                text = "Google"
+                            ) {
+
+                            }
+                            Spacer(modifier = Modifier.width(20.dp))
+                            SocialMediaLogin(
+                                R.drawable.facebook,
+                                modifier = Modifier.weight(1f),
+                                text = "Facebook"
+                            ) {
+
+                            }
+                        }
+                    }
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun LoginSection() {
+    Text(
+        text = stringResource(id = R.string.login),
+        style = MaterialTheme.typography.headlineLarge,
+    )
+    Text(
+        text = stringResource(id = R.string.loginMessage),
+        style = MaterialTheme.typography.labelSmall
+    )
+    Spacer(modifier = Modifier.height(10.dp))
+    LoginTextField(Modifier.fillMaxWidth(), "Email", "")
+    Spacer(modifier = Modifier.height(10.dp))
+    LoginTextField(Modifier.fillMaxWidth(), "Password", "Forgot?")
+    Spacer(modifier = Modifier.height(10.dp))
+
+    Button(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(40.dp),
+        onClick = {/*TODO*/ },
+        shape = RoundedCornerShape(5.dp)
+    ) {
+        Text("Continue")
     }
 }
 
