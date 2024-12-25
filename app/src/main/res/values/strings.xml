@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">notifilter</string>
+    <string name="login">Login</string>
+    <string name="loginMessage">Please sign in to continue.</string>
 </resources>
