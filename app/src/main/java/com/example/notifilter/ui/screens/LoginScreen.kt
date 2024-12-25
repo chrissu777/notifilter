@@ -1,5 +1,6 @@
 package com.example.notifilter.ui.screens
 
+import android.content.res.Configuration
 import android.media.tv.TvContract
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,8 +14,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountBox
 import androidx.compose.material3.Icon
@@ -35,9 +38,10 @@ import com.example.notifilter.ui.theme.AppTypography
 
 @Composable
 fun LoginScreen() {
-    Surface() {
-        Column(modifier = Modifier.fillMaxSize()) {
-            val uiColor = if (isSystemInDarkTheme()) Color.White else Color.Black
+    NotifilterTheme {
+        Surface() {
+            Column(modifier = Modifier.fillMaxSize()) {
+                val uiColor = if (isSystemInDarkTheme()) Color.White else Color.Black
 //            Box(
 //                contentAlignment = Alignment.TopStart
 //            ) {
@@ -47,24 +51,38 @@ fun LoginScreen() {
 //                    modifier = Modifier.size(64.dp)
 //                )
 //            }
-            Spacer(modifier = Modifier.padding(top = 90.dp))
-            Column(modifier = Modifier
-                .fillMaxSize()
-                .padding(30.dp)) {
-                Text(
-                    text = stringResource(id = R.string.login),
-                    style = MaterialTheme.typography.headlineLarge,
-                )
-                Text(
-                    text = stringResource(id = R.string.loginMessage),
-                    style = MaterialTheme.typography.labelSmall
-                )
-                LoginTextField(Modifier.fillMaxWidth(),"Email","Trailing")
-                LoginTextField(Modifier.fillMaxWidth(),"Password","Forgot?")
+                Spacer(modifier = Modifier.padding(top = 90.dp))
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(30.dp)
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.login),
+                        style = MaterialTheme.typography.headlineLarge,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.loginMessage),
+                        style = MaterialTheme.typography.labelSmall
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    LoginTextField(Modifier.fillMaxWidth(), "Email", "")
+                    Spacer(modifier = Modifier.height(10.dp))
+                    LoginTextField(Modifier.fillMaxWidth(), "Password", "Forgot?")
+                }
             }
         }
     }
 }
+
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    name = "DefaultPreviewDark"
+)
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
+    name = "DefaultPreviewLight"
+)
 
 @Preview(showBackground = true)
 @Composable
