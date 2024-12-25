@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,8 +39,8 @@ fun SocialMediaLogin(
 ) {
     Row(
         modifier = modifier
-            .socialMediaOutline()
             .clip(RoundedCornerShape(5.dp))
+            .socialMediaOutline()
             .clickable { onClick() }
             .height(40.dp),
         horizontalArrangement = Arrangement.Center,
@@ -65,6 +66,12 @@ fun Modifier.socialMediaOutline(): Modifier = composed {
                 color = primaryDark
             )
     } else {
-        Modifier.background(Color(0xFF2B638B))
+        Modifier
+            .background(Color(0xFFE0E2E8))
+            .border(
+                width = 0.5.dp,
+                shape = RoundedCornerShape(5.dp),
+                color = Color.Black
+            )
     }
 }

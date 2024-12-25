@@ -230,4 +230,4 @@ val ColorScheme.unfocusedTextFieldText
 
 val ColorScheme.textFieldContainer
     @Composable
-    get() = if(isSystemInDarkTheme()) Color.Black else Color.White
+    get() = if(isSystemInDarkTheme()) Color.Black else Color(0xFFE0E2E8)

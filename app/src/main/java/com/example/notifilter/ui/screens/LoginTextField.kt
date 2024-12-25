@@ -29,12 +29,12 @@ fun LoginTextField(
         label = {
             Text(text = label, style = MaterialTheme.typography.labelMedium, color = uiColor)
         },
-//        colors = TextFieldDefaults.colors(
-//            unfocusedPlaceholderColor = MaterialTheme.colorScheme.unfocusedTextFieldText,
-//            focusedPlaceholderColor =  MaterialTheme.colorScheme.focusedTextFieldText,
-//            unfocusedContainerColor = MaterialTheme.colorScheme.textFieldContainer,
-//            focusedContainerColor = MaterialTheme.colorScheme.textFieldContainer
-//        ),
+        colors = TextFieldDefaults.colors(
+            unfocusedPlaceholderColor = MaterialTheme.colorScheme.unfocusedTextFieldText,
+            focusedPlaceholderColor =  MaterialTheme.colorScheme.focusedTextFieldText,
+            unfocusedContainerColor = MaterialTheme.colorScheme.textFieldContainer,
+            focusedContainerColor = MaterialTheme.colorScheme.textFieldContainer
+        ),
         trailingIcon = {
             TextButton(onClick = {/*TODO*/ }) {
                 Text(

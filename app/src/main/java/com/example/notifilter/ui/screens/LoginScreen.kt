@@ -1,6 +1,7 @@
 package com.example.notifilter.ui.screens
 
 import android.content.res.Configuration
+import android.graphics.Paint.Align
 import android.media.tv.TvContract
 import android.os.Bundle
 import android.view.RoundedCorner
@@ -23,6 +24,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountBox
 import androidx.compose.material3.Button
+import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -33,6 +36,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.notifilter.R
@@ -63,10 +67,28 @@ fun LoginScreen() {
                     LoginSection()
                     Spacer(modifier = Modifier.height(25.dp))
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(
-                            text = "Or Continue With",
-                            style = MaterialTheme.typography.labelMedium
-                        )
+                        Row(modifier = Modifier.fillMaxWidth()) {
+                            HorizontalDivider(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(0.5.dp)
+                                    .align(alignment = Alignment.CenterVertically),
+                                color = Color.Gray
+
+                            )
+                            Text(
+                                modifier = Modifier.padding(horizontal = 8.dp),
+                                text = "Or Continue With",
+                                style = MaterialTheme.typography.labelMedium,
+                            )
+                            HorizontalDivider(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(0.5.dp)
+                                    .align(alignment = Alignment.CenterVertically),
+                                color = Color.Gray
+                            )
+                        }
                         Spacer(modifier = Modifier.height(25.dp))
                         Row(
                             modifier = Modifier.fillMaxWidth(),
