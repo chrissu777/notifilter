@@ -1,4 +1,7 @@
 package com.example.notifilter.ui.theme
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 val primaryLight = Color(0xFF2B638B)
@@ -217,7 +220,17 @@ val surfaceContainerDarkHighContrast = Color(0xFF1C2024)
 val surfaceContainerHighDarkHighContrast = Color(0xFF272A2E)
 val surfaceContainerHighestDarkHighContrast = Color(0xFF313539)
 
+val ColorScheme.focusedTextFieldText
+    @Composable
+    get() = if(isSystemInDarkTheme()) Color.White else Color.Black
 
+val ColorScheme.unfocusedTextFieldText
+    @Composable
+    get() = if(isSystemInDarkTheme()) Color.White else Color.Black
+
+val ColorScheme.textFieldContainer
+    @Composable
+    get() = if(isSystemInDarkTheme()) Color.Black else Color.White
 
 
 
