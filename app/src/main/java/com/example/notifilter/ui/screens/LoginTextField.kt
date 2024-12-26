@@ -1,7 +1,8 @@
 package com.example.notifilter.ui.screens
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.icons.Icons
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -10,10 +11,11 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import com.example.notifilter.R
 import com.example.notifilter.ui.theme.*
-import com.example.notifilter.ui.theme.AppTypography
 
 @Composable
 fun LoginTextField(
@@ -42,6 +44,14 @@ fun LoginTextField(
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Medium)
                 )
             }
+        },
+        leadingIcon = {
+            Icon(
+                modifier = Modifier.size(15.dp),
+                painter = painterResource(
+                    id = if (label == "Email") R.drawable.email else R.drawable.password_lock
+                ),
+                contentDescription = null)
         }
     )
 }

@@ -59,15 +59,18 @@ fun LoginScreen() {
                         .padding(30.dp)
                 ) {
                     Card(
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(10.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .socialMediaOutline(),
+                        shape = RoundedCornerShape(5.dp),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = 10.dp
                         )
                     ) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             LoginSection()
-                        }                    }
+                        }
+                    }
                     Spacer(modifier = Modifier.height(25.dp))
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         OrContinueWith()
