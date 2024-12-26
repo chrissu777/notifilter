@@ -59,12 +59,12 @@ fun LoginScreen() {
                         .padding(30.dp)
                 ) {
                     Card(
+                        shape = RoundedCornerShape(5.dp),
                         modifier = Modifier
                             .fillMaxWidth()
                             .socialMediaOutline(),
-                        shape = RoundedCornerShape(5.dp),
                         elevation = CardDefaults.cardElevation(
-                            defaultElevation = 10.dp
+                            defaultElevation = 5.dp
                         )
                     ) {
                         Column(modifier = Modifier.padding(16.dp)) {
