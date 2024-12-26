@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+    implementation("androidx.credentials:credentials:1.5.0-beta01")
+    implementation("androidx.credentials:credentials-play-services-auth:1.5.0-beta01")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
